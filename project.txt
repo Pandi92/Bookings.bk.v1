@@ -1,0 +1,35 @@
+ try {
+    // Check if username already exists
+    const checkUsernameResponse = await axios.get(`http://localhost:8080/api/auth/check-username/${formData.username}`);
+    if (checkUsernameResponse.data.exists) {
+      formErrors.username = 'Username already exists';
+      setErrors(formErrors);
+      return;
+    }
+
+    // Register user if username is available
+    const response = await axios.post('http://localhost:8080/api/auth/register', formData);
+    console.log(response.data);
+    // Handle successful registration
+  } catch (error) {
+    if (error.response && error.response.data) {
+      setErrors(error.response.data);
+    }
+  }
+
+
+const Register = {
+            username: formData.username,
+            password: formData.password
+        }
+ fetch(`http://localhost:8080/user/register`, {
+            headers: {
+                "Content-Type": "application/json"
+            },
+            method: 'POST',
+            body: JSON.stringify(Register)
+        })
+            .then((response) => {
+                console.log("Data Received" + response);
+            })
+
