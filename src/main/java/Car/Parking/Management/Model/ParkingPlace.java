@@ -14,14 +14,22 @@ private int id;
 private String city;
 private String area;
 private String location;
+private String locationname;
 private String floor;
-private Long slotno;
+private Long slots;
 
-public Long getSlotno() {
-	return slotno;
+
+public String getLocationname() {
+	return locationname;
 }
-public void setSlotno(Long slotno) {
-	this.slotno = slotno;
+public void setLocationname(String locationname) {
+	this.locationname = locationname;
+}
+public Long getSlots() {
+	return slots;
+}
+public void setSlots(Long slots) {
+	this.slots = slots;
 }
 public String getFloor() {
 	return floor;

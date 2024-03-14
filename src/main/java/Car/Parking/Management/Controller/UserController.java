@@ -34,7 +34,6 @@ public class UserController {
 	}
 
 	@GetMapping("/check-username/{username}")
-	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> checkUsernameExists(@PathVariable String username) {
 		User existingUser = userservice.getUserByUsername(username);
 		if (existingUser != null) {
